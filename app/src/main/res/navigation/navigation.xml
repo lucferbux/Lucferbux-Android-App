@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.lucferbux.lucferbux.ui.home.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_aboutMeFragment"
+            app:destination="@id/aboutme"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutme"
+        android:name="com.lucferbux.lucferbux.ui.aboutme.AboutMeFragment"
+        android:label="about_me_fragment"
+        tools:layout="@layout/about_me_fragment" >
+        <argument
+            android:name="argTest"
+            app:argType="string"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/articles"
+        android:name="com.lucferbux.lucferbux.ui.articles.ArticlesFragment"
+        android:label="articles_fragment"
+        tools:layout="@layout/articles_fragment" />
+    <fragment
+        android:id="@+id/projects"
+        android:name="com.lucferbux.lucferbux.ui.projects.ProjectsFragment"
+        android:label="projects_fragment"
+        tools:layout="@layout/projects_fragment" />
+</navigation>

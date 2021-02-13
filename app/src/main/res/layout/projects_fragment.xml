@@ -5,7 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".ui.projects.ProjectsFragment"
-android:background="@color/white">
+android:background="@color/background">
 
 
 <TextView
@@ -14,7 +14,7 @@ android:background="@color/white">
     android:layout_height="wrap_content"
     android:text="@string/nav_projects"
     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-    android:textColor="@color/black"
+    android:textColor="@color/lbl_color"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"

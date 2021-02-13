@@ -30,7 +30,7 @@
             android:layout_marginEnd="14dp"
             android:layout_marginBottom="16dp"
             android:onClick="@{() -> clickListener.onclick(introData)}"
-            app:cardBackgroundColor="@color/white"
+            app:cardBackgroundColor="@color/background_card"
             app:cardCornerRadius="10dp"
             app:cardElevation="8dp"
             app:cardMaxElevation="8dp"
@@ -38,12 +38,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-
             >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_intro"
+                    imageUrl="@{introData.image}"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@string/img_news"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_title"
+                    app:layout_constraintDimensionRatio="1.82:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@drawable/ic_img_placeholder" />
 
                 <TextView
                     android:id="@+id/tv_title"
@@ -53,12 +65,12 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="20dp"
                     android:text="@{introData.title}"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                    android:textColor="@color/black"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/lbl_color"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_intro"
                     tools:text="No Pulses El Botón: Visión General" />
 
                 <TextView
@@ -69,58 +81,16 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="6dp"
                     android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="14dp"
                     android:alpha="0.8"
-                    android:textColor="@color/black"
+                    android:textColor="@color/lbl_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_title"
                     tools:text="Nov 8, 2019" />
 
-                <ImageView
-                    android:id="@+id/img_intro"
-                    imageUrl="@{introData.image}"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintDimensionRatio="1.7:1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_date"
-                    tools:srcCompat="@drawable/ic_placeholder_img" />
-
-                <TextView
-                    android:id="@+id/tv_description"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:text="@{introData.description}"
-                    android:textColor="@color/black"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/img_intro"
-                    tools:text="Hoy por fin, después de varios meses de preparación, puedo enseñar el primer video de No Pulses El Botón.
-No Pulses El Botón es un canal de divulgación (con intención de ser multiplataforma) donde colgar videos relacionados con diversas ramas de la informática.
-Todo esto surgió después de revisar mis apuntes de la carrera, muchas de las cosas eran muy útiles pero no las había asimilado bien debido a las prisas y la falta de visión general.
-Así que mi objetivo es que después de ver cada video, una persona acabe sabiendo un poco más sobre algún tema tecnológico y que sepa relacionarlo con otros conceptos." />
-
-                <Button
-                    android:id="@+id/btn_link"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    onButtonClick="@{introData.url}"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:text="@string/btn_intro_link"
-                    android:textColor="@color/black"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_description"
-                    android:layout_marginRight="4dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>

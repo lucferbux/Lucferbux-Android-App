@@ -61,6 +61,6 @@ class HomeDiffCallback: DiffUtil.ItemCallback<Intro>() {
 
 }
 
-class IntroListener(val clickListener: (introId: String) -> Unit) {
-    fun onclick(intro: Intro) = clickListener(intro.id)
+class IntroListener(val clickListener: (introId: Intro) -> Unit) {
+    fun onclick(intro: Intro) = clickListener(intro)
 }

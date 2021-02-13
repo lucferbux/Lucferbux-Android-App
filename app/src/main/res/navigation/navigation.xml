@@ -11,27 +11,40 @@
         android:label="home_fragment"
         tools:layout="@layout/home_fragment" >
         <action
-            android:id="@+id/action_homeFragment_to_aboutMeFragment"
-            app:destination="@id/aboutme"
+            android:id="@+id/action_homeFragment_to_homeDetailFragment"
+            app:destination="@id/home_detail"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popUpToInclusive="false" />
     </fragment>
+
+
     <fragment
-        android:id="@+id/aboutme"
-        android:name="com.lucferbux.lucferbux.ui.aboutme.AboutMeFragment"
-        android:label="about_me_fragment"
-        tools:layout="@layout/about_me_fragment" >
+        android:id="@+id/home_detail"
+        android:name="com.lucferbux.lucferbux.ui.home.homeDetail.HomeDetailFragment"
+        android:label="home_detail_fragment"
+        tools:layout="@layout/home_detail_fragment" >
         <argument
             android:name="argTest"
             app:argType="string"
             />
     </fragment>
+
+    <fragment
+        android:id="@+id/aboutme"
+        android:name="com.lucferbux.lucferbux.ui.aboutme.AboutMeFragment"
+        android:label="about_me_fragment"
+        tools:layout="@layout/about_me_fragment" >
+    </fragment>
+
+
     <fragment
         android:id="@+id/articles"
         android:name="com.lucferbux.lucferbux.ui.articles.ArticlesFragment"
         android:label="articles_fragment"
         tools:layout="@layout/articles_fragment" />
+
+
     <fragment
         android:id="@+id/projects"
         android:name="com.lucferbux.lucferbux.ui.projects.ProjectsFragment"

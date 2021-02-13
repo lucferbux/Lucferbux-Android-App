@@ -1,8 +1,10 @@
 <resources>
-    <string name="app_name">Lucas Fernandez</string>
+    <string name="app_name">Lucferbux</string>
     <string name="nav_home">Home</string>
     <string name="nav_aboutme">Aboutme</string>
     <string name="nav_projects">Projects</string>
     <string name="nav_articles">Articles</string>
     <string name="btn_intro_link">Link</string>
+
+    <string name="img_news">Caption Image of News</string>
 </resources>

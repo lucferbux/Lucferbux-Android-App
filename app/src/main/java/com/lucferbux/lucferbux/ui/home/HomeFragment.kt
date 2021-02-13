@@ -2,6 +2,7 @@ package com.lucferbux.lucferbux.ui.home
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.lucferbux.lucferbux.FirestoreUtil
 import com.lucferbux.lucferbux.R
 import com.lucferbux.lucferbux.databinding.HomeFragmentBinding
@@ -25,7 +27,7 @@ class HomeFragment : Fragment() {
 
         // set adapter
         val adapter = HomeAdapter(IntroListener { introId ->
-            Toast.makeText(context, "${introId} selected", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "${introId.title} selected", Toast.LENGTH_LONG).show()
         })
 
         // set binding
@@ -37,8 +39,7 @@ class HomeFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         val firebase = FirestoreUtil()
         val viewModelFactory = HomeViewModelFactory(firebase, application)
-        val homeViewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel::class.java)
-
+        val homeViewModel = ViewModelProvider(this, viewModelFactory).get(HomeViewModel::class.java)
 
         // UI
         homeViewModel.introData.observe(this, Observer { result ->
@@ -46,6 +47,7 @@ class HomeFragment : Fragment() {
         })
         return binding.root
     }
+
 
 
 

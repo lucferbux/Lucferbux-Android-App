@@ -51,7 +51,6 @@ class HomeFragment : Fragment() {
         homeViewModel.navigateToHomeDetail.observe(viewLifecycleOwner, Observer { intro ->
 
             intro?.let {
-                Log.d("ARGS", intro.id)
                 this.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToHomeDetailFragment(intro.id))
                 homeViewModel.onHomeDeatilNavigated()
             }

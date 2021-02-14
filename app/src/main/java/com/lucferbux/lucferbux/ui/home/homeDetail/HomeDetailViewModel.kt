@@ -31,6 +31,18 @@ class HomeDetailViewModel(val firebase: FirestoreUtil, application: Application)
      */
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
+    private val _openLink = MutableLiveData<String?>()
+
+    val openLink: LiveData<String?>
+        get() = _openLink
+
+
+    private val _navigateBack = MutableLiveData<String?>()
+
+    val navigateBack: LiveData<String?>
+        get() = _navigateBack
+
+
 
     private val _introData = MutableLiveData<Intro>()
 
@@ -44,6 +56,25 @@ class HomeDetailViewModel(val firebase: FirestoreUtil, application: Application)
                 _introData.value = data
             }
         }
+
+    fun prepareBackNavigation(id: String) {
+        _navigateBack.value = id
+    }
+
+    fun prepareLink(id: String) {
+        _openLink.value = id
+    }
+
+    /**
+     * After the navigation has taken place, make sure navigateToSelectedApp is set to null
+     */
+    fun onBackNavigation() {
+        _navigateBack.value = null
+    }
+
+    fun onLinkPrepared() {
+        _openLink.value = null
+    }
 
     /**
      * This method will be called when this ViewModel is no longer used and will be destroyed.

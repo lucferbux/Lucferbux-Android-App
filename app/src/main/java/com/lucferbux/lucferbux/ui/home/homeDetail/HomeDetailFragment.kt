@@ -1,5 +1,7 @@
 package com.lucferbux.lucferbux.ui.home.homeDetail
 
+import android.content.Intent
+import android.net.Uri
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.lucferbux.lucferbux.FirestoreUtil
 
 import com.lucferbux.lucferbux.R
@@ -61,6 +65,26 @@ class HomeDetailFragment : Fragment() {
 
         }
 
+        viewModel.navigateBack.observe(viewLifecycleOwner, Observer { data ->
+
+            data?.let {
+               this.findNavController().popBackStack()
+                viewModel.onBackNavigation()
+            }
+
+        })
+
+        viewModel.openLink.observe(viewLifecycleOwner, Observer { data ->
+
+            data?.let {
+                val defaultBrowser = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
+                defaultBrowser.data = Uri.parse(it)
+                startActivity(defaultBrowser)
+                viewModel.onLinkPrepared()
+            }
+
+        })
+
 
 
         return binding.root
@@ -68,8 +92,12 @@ class HomeDetailFragment : Fragment() {
 
 
     class LinkHandler(val viewModel: HomeDetailViewModel) {
-        fun onLinkPressed() {
-            // TODO: Link pressed
+        fun onLinkPressed(view: View, uri: String) {
+            viewModel.prepareLink(uri)
+        }
+
+        fun onBackPressed(view: View) {
+                viewModel.prepareBackNavigation("navigation")
         }
     }
 

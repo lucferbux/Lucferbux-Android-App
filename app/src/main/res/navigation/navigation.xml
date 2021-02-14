@@ -28,6 +28,13 @@
             android:name="idIntro"
             app:argType="string"
             />
+
+        <action
+            android:id="@+id/action_homeFragmentDetail_to_homeDetail"
+            app:destination="@id/home"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment

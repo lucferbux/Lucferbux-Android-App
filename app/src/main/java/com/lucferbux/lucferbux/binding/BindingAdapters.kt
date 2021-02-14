@@ -46,10 +46,13 @@ object BindingAdapters {
     @Suppress("unused")
     @BindingAdapter("timestampToDate")
     @JvmStatic
-    fun timetsampToDate(view: TextView, timestamp: Date) {
-        val dateFormat = SimpleDateFormat
-            .getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT)
-        view.text = dateFormat.format(timestamp)
+    fun timetsampToDate(view: TextView, timestamp: Date?) {
+        timestamp?.let {
+            val dateFormat = SimpleDateFormat
+                .getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT)
+            view.text = dateFormat.format(timestamp)
+        }
+
     }
 
     /**

@@ -50,12 +50,30 @@ class FirestoreUtil: DataSource {
             var savedAddressList : MutableList<Intro> = mutableListOf()
             for (doc in value!!) {
                 var addressItem = doc.toObject(Intro::class.java)
+                addressItem.id = doc.id
                 savedAddressList.add(addressItem)
             }
                 introData.value = savedAddressList
         })
 
         return introData
+    }
+
+    fun getIntroById(id: String): LiveData<Intro> {
+
+        val introReference: MutableLiveData<Intro> = MutableLiveData()
+        getIntroRef(id).addSnapshotListener(EventListener<DocumentSnapshot> { value, e ->
+            if (e != null) {
+                introReference.value = null
+                return@EventListener
+            }
+            value?.let {
+                var introObject = it.toObject((Intro::class.java))
+                introObject!!.id = id
+                introReference.value = introObject
+            }
+        })
+        return introReference
     }
 
 

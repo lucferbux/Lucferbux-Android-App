@@ -25,7 +25,7 @@
         android:label="home_detail_fragment"
         tools:layout="@layout/home_detail_fragment" >
         <argument
-            android:name="argTest"
+            android:name="idIntro"
             app:argType="string"
             />
     </fragment>

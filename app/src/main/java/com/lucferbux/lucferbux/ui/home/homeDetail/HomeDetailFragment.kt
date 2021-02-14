@@ -8,12 +8,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.lucferbux.lucferbux.FirestoreUtil
 
 import com.lucferbux.lucferbux.R
+import com.lucferbux.lucferbux.databinding.HomeDetailFragmentBinding
+import com.lucferbux.lucferbux.databinding.HomeFragmentBinding
+import com.lucferbux.lucferbux.ui.home.HomeViewModelFactory
 import java.lang.Exception
 
 class HomeDetailFragment : Fragment() {
+
+    private lateinit var binding: HomeDetailFragmentBinding
 
     companion object {
         fun newInstance() = HomeDetailFragment()
@@ -25,25 +32,44 @@ class HomeDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.home_detail_fragment, container, false)
-    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HomeDetailViewModel::class.java)
+        // set viewmodel
+        val application = requireNotNull(this.activity).application
+        val firebase = FirestoreUtil()
+        val viewModelFactory = HomeDetailViewModelFactory(firebase, application)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(HomeDetailViewModel::class.java)
+
+        val clickListener = LinkHandler(viewModel)
+
+
+        // set binding
+        binding = DataBindingUtil.inflate(inflater, R.layout.home_detail_fragment, container, false)
+        binding.viewModel = viewModel
+        binding.clickListener = clickListener
+        binding.lifecycleOwner = this
 
         arguments?.let {
 
             try {
                 val args = HomeDetailFragmentArgs.fromBundle(it)
-
-                Toast.makeText(context, "Test ARgument: ${args.argTest}", Toast.LENGTH_LONG).show()
+                viewModel.getDataFromFirestore(args.idIntro)
             }
             catch (e: Exception) {
                 Log.e("Error", e.toString())
             }
 
 
+        }
+
+
+
+        return binding.root
+    }
+
+
+    class LinkHandler(val viewModel: HomeDetailViewModel) {
+        fun onLinkPressed() {
+            // TODO: Link pressed
         }
     }
 

@@ -32,6 +32,11 @@ class HomeViewModel(val firebase: FirestoreUtil, application: Application) : And
     val introData: LiveData<List<Intro>>
         get() = _introData
 
+    private val _navigateToHomeDetail = MutableLiveData<Intro?>()
+
+    val navigateToHomeDetail: LiveData<Intro?>
+        get() = _navigateToHomeDetail
+
     init {
         getIntroDataFromFirestore()
     }
@@ -42,6 +47,18 @@ class HomeViewModel(val firebase: FirestoreUtil, application: Application) : And
                 _introData.value = data
             }
         }
+
+    fun prepareDetailNavigation(news: Intro) {
+        _navigateToHomeDetail.value = news
+    }
+
+
+    /**
+     * After the navigation has taken place, make sure navigateToSelectedApp is set to null
+     */
+    fun onHomeDeatilNavigated() {
+        _navigateToHomeDetail.value = null
+    }
 
     /**
      * This method will be called when this ViewModel is no longer used and will be destroyed.

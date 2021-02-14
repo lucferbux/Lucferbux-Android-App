@@ -7,7 +7,7 @@
         android:orderInCategory="1"
         android:icon="@drawable/ic_home"/>
 
-    <item android:id="@+id/projects"
+<!--    <item android:id="@+id/projects"
         android:title="@string/nav_projects"
         app:showAsAction="always"
         android:orderInCategory="2"
@@ -17,11 +17,11 @@
         android:title="@string/nav_articles"
         app:showAsAction="always"
         android:orderInCategory="3"
-        android:icon="@drawable/ic_articles"/>
+        android:icon="@drawable/ic_articles"/>-->
     <item
         android:id="@+id/aboutme"
         android:icon="@drawable/ic_aboutme"
-        android:orderInCategory="4"
+        android:orderInCategory="2"
         android:title="@string/nav_aboutme"
         app:showAsAction="always" />
 </menu>

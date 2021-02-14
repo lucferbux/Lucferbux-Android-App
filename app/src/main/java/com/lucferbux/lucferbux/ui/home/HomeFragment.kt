@@ -11,9 +11,11 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.lucferbux.lucferbux.FirestoreUtil
 import com.lucferbux.lucferbux.R
 import com.lucferbux.lucferbux.databinding.HomeFragmentBinding
+import com.lucferbux.lucferbux.ui.home.homeDetail.HomeDetailFragment
 
 
 class HomeFragment : Fragment() {
@@ -25,9 +27,15 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        // set viewmodel
+        val application = requireNotNull(this.activity).application
+        val firebase = FirestoreUtil()
+        val viewModelFactory = HomeViewModelFactory(firebase, application)
+        val homeViewModel = ViewModelProvider(this, viewModelFactory).get(HomeViewModel::class.java)
+
         // set adapter
         val adapter = HomeAdapter(IntroListener { introId ->
-            Toast.makeText(context, "${introId.title} selected", Toast.LENGTH_LONG).show()
+            homeViewModel.prepareDetailNavigation(introId)
         })
 
         // set binding
@@ -35,15 +43,19 @@ class HomeFragment : Fragment() {
         binding.dealsList.adapter = adapter
         binding.lifecycleOwner = this
 
-        // set viewmodel
-        val application = requireNotNull(this.activity).application
-        val firebase = FirestoreUtil()
-        val viewModelFactory = HomeViewModelFactory(firebase, application)
-        val homeViewModel = ViewModelProvider(this, viewModelFactory).get(HomeViewModel::class.java)
-
         // UI
-        homeViewModel.introData.observe(this, Observer { result ->
+        homeViewModel.introData.observe(viewLifecycleOwner, Observer { result ->
             adapter.submitList(result)
+        })
+
+        homeViewModel.navigateToHomeDetail.observe(viewLifecycleOwner, Observer { intro ->
+
+            intro?.let {
+                Log.d("ARGS", intro.id)
+                this.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToHomeDetailFragment(intro.id))
+                homeViewModel.onHomeDeatilNavigated()
+            }
+
         })
         return binding.root
     }

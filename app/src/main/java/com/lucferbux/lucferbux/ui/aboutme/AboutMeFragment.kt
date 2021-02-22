@@ -10,29 +10,34 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.lucferbux.lucferbux.R
+import com.lucferbux.lucferbux.databinding.AboutMeFragmentBinding
 import java.lang.Exception
 
 
 class AboutMeFragment : Fragment() {
+
+    private lateinit var viewModel: AboutMeViewModel
+    private lateinit var binding: AboutMeFragmentBinding
 
     companion object {
         fun newInstance() =
             AboutMeFragment()
     }
 
-    private lateinit var viewModel: AboutMeViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
+
+
+
         return inflater.inflate(R.layout.about_me_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(AboutMeViewModel::class.java)
 
-    }
 
 }

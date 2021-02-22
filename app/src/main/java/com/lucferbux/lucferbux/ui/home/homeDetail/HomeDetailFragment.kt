@@ -59,7 +59,7 @@ class HomeDetailFragment : Fragment() {
                 viewModel.getDataFromFirestore(args.idIntro)
             }
             catch (e: Exception) {
-                Log.e("Error", e.toString())
+                //Log.e("Error", e.toString())
             }
 
 

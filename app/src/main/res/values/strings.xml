@@ -8,6 +8,7 @@
 
     <string name="img_news">Caption Image of News</string>
 
+    <string name="avatar_description">Avatar Image</string>
     <string name="aboutme_title">Lucas Fernández</string>
     <string name="aboutme_caption">DEVELOPER</string>
     <string name="aboutme_description">I love to learn &amp; discover new technologies everyday.</string>

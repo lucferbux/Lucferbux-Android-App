@@ -89,9 +89,10 @@
         <View
             android:id="@+id/view"
             android:layout_width="wrap_content"
-            android:layout_height="0.2dp"
+            android:layout_height="0.1dp"
             android:layout_marginStart="70dp"
             android:layout_marginTop="10dp"
+            android:alpha="0.5"
             android:background="@color/lbl_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

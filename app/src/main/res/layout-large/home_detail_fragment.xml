@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.lucferbux.lucferbux.ui.home.homeDetail.HomeDetailViewModel" />
+
+        <variable
+            name="clickListener"
+            type="com.lucferbux.lucferbux.ui.home.homeDetail.HomeDetailFragment.LinkHandler" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.homeDetail.HomeDetailFragment"
+        android:background="@color/background">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_news_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toTopOf="@+id/scollview_news_detail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button_back"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:background="@drawable/ic_baseline_arrow_back_24"
+                    android:onClick="@{clickListener ::onBackPressed}"
+                    android:textColor="@color/lbl_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button_link"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/ic_baseline_link_24"
+                    android:onClick="@{(view) -> clickListener.onLinkPressed(view, viewModel.introData.url)}"
+                    android:textColor="@color/lbl_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+            android:id="@+id/scollview_news_detail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_news_detail">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/title_news"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@{viewModel.introData.title_en}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/lbl_color"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="No Pulses El Botón: Visión General" />
+
+                <TextView
+                    android:id="@+id/date_news"
+                    timestampToDate="@{viewModel.introData.timestamp}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:alpha="0.8"
+                    android:textColor="@color/lbl_color"
+                    app:layout_constraintBottom_toTopOf="@+id/img_news"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_news"
+                    tools:text="Nov 8, 2019" />
+
+                <ImageView
+                    android:id="@+id/img_news"
+                    imageUrl="@{viewModel.introData.image}"
+                    android:layout_width="400dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@string/img_news"
+                    app:layout_constraintBottom_toTopOf="@+id/description_news"
+                    app:layout_constraintDimensionRatio="1.82:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/date_news"
+                    tools:srcCompat="@drawable/ic_img_placeholder" />
+
+                <TextView
+                    android:id="@+id/description_news"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:fallbackLineSpacing="false"
+                    android:lineSpacingExtra="4sp"
+                    android:text="@{viewModel.introData.description_en}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/lbl_color"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_news"
+                    tools:text="There is no much time left to start the Master's Degree in Full Stack Development of Three Points with Collaboration of the UPC.
+            \nThe main goal of this Master is to provide a general vision of the Full Stack Development to a manager o director profile. \n That is why, on top of the technical concepts, the students will learn to analyze all the software development stages, in order to face all the technical difficulties that might appear with a low level understanding of the situation. \n All the professors are top professionals in their respective careers and they gather both technical and managing experience in order to deliver the best possible content. I am very thrilled for the beginning of the new course and I hope all the students will be satisfied with the result." />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

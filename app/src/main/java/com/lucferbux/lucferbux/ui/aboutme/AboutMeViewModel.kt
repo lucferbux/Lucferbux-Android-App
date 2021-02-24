@@ -1,13 +1,19 @@
 package com.lucferbux.lucferbux.ui.aboutme
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.lucferbux.lucferbux.FirestoreUtil
+import com.lucferbux.lucferbux.data.Intro
+import com.lucferbux.lucferbux.data.Work
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
-class AboutMeViewModel : ViewModel() {
+class AboutMeViewModel(val firebase: FirestoreUtil, application: Application) : AndroidViewModel(application) {
 
     // Create a Coroutine scope using a job to be able to cancel when needed
     private var viewModelJob = Job()
@@ -20,6 +26,23 @@ class AboutMeViewModel : ViewModel() {
 
     val openLink: LiveData<String?>
         get() = _openLink
+
+
+    private val _workData = MutableLiveData<List<Work>>()
+
+    val workData: LiveData<List<Work>>
+        get() = _workData
+
+    init {
+        getJobDataFromFirestore()
+    }
+
+    fun getJobDataFromFirestore() =
+        coroutineScope.launch {
+            firebase.getWorkListener().observeForever { data ->
+                _workData.value = data
+            }
+        }
 
     fun navigateLinkedin() {
         _openLink.value = "https://www.linkedin.com/mynetwork/"

@@ -13,4 +13,11 @@
     <string name="aboutme_caption">DEVELOPER</string>
     <string name="aboutme_description">I love to learn &amp; discover new technologies everyday.</string>
 
+
+
+    <string name="job_title_placeholder">Postgraduate Expert in Blockchain and Bitcoin</string>
+    <string name="job_date_placeholder">2019 - 2020 </string>
+    <string name="job_description_placeholder">Professor of the Security in Blockchain module, where I talk about the main security threats in Blockchain, as well as Smart Contract fortification and multiple system deployments.</string>
+
+
 </resources>

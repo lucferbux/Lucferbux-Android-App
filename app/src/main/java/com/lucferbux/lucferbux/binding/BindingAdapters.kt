@@ -10,7 +10,10 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -86,6 +89,21 @@ object BindingAdapters {
             Glide.with(imageView.context)
                 .load(url)
                 .transition(DrawableTransitionOptions.withCrossFade())
+                .into(imageView)
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("imageUrlRounded")
+    fun imageUrlRounded(imageView: ImageView, url: String?) {
+
+        if (!url.isNullOrEmpty()) {
+            var requestOptions =  RequestOptions()
+
+            Glide.with(imageView.context)
+                .load(url)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .transform(RoundedCorners(200))
                 .into(imageView)
         }
     }

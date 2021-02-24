@@ -9,6 +9,7 @@ import com.google.firebase.ktx.Firebase
 import com.lucferbux.lucferbux.api.DataSource
 import com.lucferbux.lucferbux.api.FirebaseResult
 import com.lucferbux.lucferbux.data.Intro
+import com.lucferbux.lucferbux.data.Work
 import kotlin.coroutines.Continuation
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
@@ -74,6 +75,28 @@ class FirestoreUtil: DataSource {
             }
         })
         return introReference
+    }
+
+    fun getWorkListener(): LiveData<List<Work>> {
+        // TODO: handle error with firebase result
+        val workData: MutableLiveData<List<Work>> = MutableLiveData()
+        db.collection("team")
+            .orderBy("importance", Query.Direction.ASCENDING).addSnapshotListener(EventListener<QuerySnapshot> { value, e ->
+                if (e != null) {
+                    workData.value = null
+                    return@EventListener
+                }
+
+                var savedWorkList : MutableList<Work> = mutableListOf()
+                for (doc in value!!) {
+                    var workItem = doc.toObject(Work::class.java)
+                    workItem.id = doc.id
+                    savedWorkList.add(workItem)
+                }
+                workData.value = savedWorkList
+            })
+
+        return workData
     }
 
 

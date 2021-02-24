@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.lucferbux.lucferbux.FirestoreUtil
 import com.lucferbux.lucferbux.R
 import com.lucferbux.lucferbux.databinding.AboutMeFragmentBinding
 import java.lang.Exception
@@ -35,14 +36,25 @@ class AboutMeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        viewModel = ViewModelProvider(this).get(AboutMeViewModel::class.java)
+        val application = requireNotNull(this.activity).application
+        val firebase = FirestoreUtil()
+        val viewModelFactory = AboutMeViewModelFactory(firebase, application)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(AboutMeViewModel::class.java)
+
+        // set adapter
+        val adapter = AboutMeAdapter()
 
         // set binding
-
         binding = DataBindingUtil.inflate(inflater, R.layout.about_me_fragment, container, false)
+        binding.aboutmeWorkAdapter.adapter = adapter
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
+        // UI
+
+        viewModel.workData.observe(viewLifecycleOwner, { result ->
+            adapter.submitList(result)
+        })
 
         viewModel.openLink.observe(viewLifecycleOwner, Observer { data ->
 

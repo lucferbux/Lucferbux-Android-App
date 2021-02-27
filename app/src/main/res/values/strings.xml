@@ -20,4 +20,9 @@
     <string name="job_description_placeholder">Professor of the Security in Blockchain module, where I talk about the main security threats in Blockchain, as well as Smart Contract fortification and multiple system deployments.</string>
 
 
+    <string name="post_title_placeholder">Cloning Raspberry Pi SD on macOS</string>
+    <string name="post_date_placeholder">8 Nov, 2020 </string>
+    <string name="post_description_placeholder">This guide shows the steps to clone all the SD content of a Raspberry Pi to back up or dump the content to another device. Also I show a trick to monitor the cloning process that can be very helpful.</string>
+
+
 </resources>

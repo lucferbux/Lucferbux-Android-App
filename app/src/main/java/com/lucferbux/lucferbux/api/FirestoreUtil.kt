@@ -9,6 +9,7 @@ import com.google.firebase.ktx.Firebase
 import com.lucferbux.lucferbux.api.DataSource
 import com.lucferbux.lucferbux.api.FirebaseResult
 import com.lucferbux.lucferbux.data.Intro
+import com.lucferbux.lucferbux.data.Post
 import com.lucferbux.lucferbux.data.Work
 import kotlin.coroutines.Continuation
 import kotlin.coroutines.resume
@@ -39,7 +40,6 @@ class FirestoreUtil: DataSource {
 
 
     fun getIntroListener(): LiveData<List<Intro>> {
-        // TODO: handle error with firebase result
         val introData: MutableLiveData<List<Intro>> = MutableLiveData()
         db.collection("intro")
             .orderBy("timestamp", Query.Direction.DESCENDING).addSnapshotListener(EventListener<QuerySnapshot> { value, e ->
@@ -78,7 +78,6 @@ class FirestoreUtil: DataSource {
     }
 
     fun getWorkListener(): LiveData<List<Work>> {
-        // TODO: handle error with firebase result
         val workData: MutableLiveData<List<Work>> = MutableLiveData()
         db.collection("team")
             .orderBy("importance", Query.Direction.ASCENDING).addSnapshotListener(EventListener<QuerySnapshot> { value, e ->
@@ -97,6 +96,27 @@ class FirestoreUtil: DataSource {
             })
 
         return workData
+    }
+
+    fun getPostListener(): LiveData<List<Post>> {
+        val postData: MutableLiveData<List<Post>> = MutableLiveData()
+        db.collection("patent")
+                .orderBy("date", Query.Direction.DESCENDING).addSnapshotListener(EventListener<QuerySnapshot> { value, e ->
+                    if (e != null) {
+                        postData.value = null
+                        return@EventListener
+                    }
+
+                    var savedPostList : MutableList<Post> = mutableListOf()
+                    for (doc in value!!) {
+                        var postItem = doc.toObject(Post::class.java)
+                        postItem.id = doc.id
+                        savedPostList.add(postItem)
+                    }
+                    postData.value = savedPostList
+                })
+
+        return postData
     }
 
 

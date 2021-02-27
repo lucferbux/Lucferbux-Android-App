@@ -93,6 +93,7 @@ object BindingAdapters {
         }
     }
 
+
     @JvmStatic
     @BindingAdapter("imageUrlRounded")
     fun imageUrlRounded(imageView: ImageView, url: String?) {

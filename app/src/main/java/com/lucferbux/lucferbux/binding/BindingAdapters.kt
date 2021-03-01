@@ -3,14 +3,10 @@ package com.lucferbux.lucferbux.binding
 import android.content.Intent
 import android.net.Uri
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
+import android.widget.*
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
@@ -107,6 +103,14 @@ object BindingAdapters {
                 .transform(RoundedCorners(200))
                 .into(imageView)
         }
+    }
+
+
+    @JvmStatic
+    @BindingAdapter("addSpanGrid")
+    fun addSpanGrid(recyclerView: RecyclerView, spancount: Int) {
+
+        recyclerView.addItemDecoration(GridSpacingItemDecoration(spancount, 40, true))
     }
 
 

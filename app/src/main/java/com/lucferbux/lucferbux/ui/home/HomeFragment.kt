@@ -45,7 +45,7 @@ class HomeFragment : Fragment() {
 
         // UI
         homeViewModel.introData.observe(viewLifecycleOwner, Observer { result ->
-            adapter.submitList(result)
+            adapter.addHeaderAndSubmitList(result)
         })
 
         homeViewModel.navigateToHomeDetail.observe(viewLifecycleOwner, Observer { intro ->

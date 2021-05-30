@@ -21,32 +21,33 @@
         tools:context=".ui.home.homeDetail.HomeDetailFragment"
         android:background="@color/background">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_news_detail"
+        <ScrollView
+            android:id="@+id/scollview_news_detail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintBottom_toTopOf="@+id/scollview_news_detail"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraint_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
+
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/button_back"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="29dp"
                     android:layout_height="29dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="40dp"
                     android:background="@drawable/ic_baseline_arrow_back_24"
                     android:onClick="@{clickListener ::onBackPressed}"
                     android:textColor="@color/lbl_color"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/button_link"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,43 +56,22 @@
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="29dp"
                     android:layout_height="29dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginEnd="30dp"
                     android:background="@drawable/ic_baseline_link_24"
                     android:onClick="@{(view) -> clickListener.onLinkPressed(view, viewModel.introData.url)}"
                     android:textColor="@color/lbl_color"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.appcompat.widget.Toolbar>
-
-        <ScrollView
-            android:id="@+id/scollview_news_detail"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_news_detail">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/button_back"
+                    app:layout_constraintTop_toTopOf="@+id/button_back" />
 
                 <TextView
                     android:id="@+id/title_news"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginEnd="24dp"
                     android:text="@{viewModel.introData.title_en}"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="@color/lbl_color"
@@ -100,7 +80,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button_back"
                     tools:text="No Pulses El Botón: Visión General" />
 
                 <TextView
@@ -108,9 +88,9 @@
                     timestampToDate="@{viewModel.introData.timestamp}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="6dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginEnd="24dp"
                     android:layout_marginBottom="20dp"
                     android:alpha="0.8"
                     android:textColor="@color/lbl_color"
@@ -123,9 +103,11 @@
 
                 <ImageView
                     android:id="@+id/img_news"
-                    imageUrl="@{viewModel.introData.image}"
+                    imageUrlRoundBorders="@{viewModel.introData.image}"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
                     android:contentDescription="@string/img_news"
                     app:layout_constraintBottom_toTopOf="@+id/description_news"
                     app:layout_constraintDimensionRatio="1.82:1"
@@ -138,9 +120,9 @@
                     android:id="@+id/description_news"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginEnd="24dp"
                     android:layout_marginBottom="30dp"
                     android:fallbackLineSpacing="false"
                     android:lineSpacingExtra="4sp"

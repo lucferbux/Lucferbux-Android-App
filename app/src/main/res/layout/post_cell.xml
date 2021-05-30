@@ -19,15 +19,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/background_card"
         android:clickable="true"
         android:onClick="@{() -> clickListener.onclick(postData)}">
 
 
         <androidx.cardview.widget.CardView
             android:id="@+id/post_card"
-            android:layout_width="110dp"
-            android:layout_height="80dp"
+            android:layout_width="92dp"
+            android:layout_height="70dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
@@ -86,6 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginBottom="17dp"
             android:alpha="0.7"
             android:maxLines="3"
             android:text="@{postData.description_en}"
@@ -93,24 +93,11 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@color/lbl_color"
             android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/job_title"
             app:layout_constraintStart_toStartOf="@+id/job_title"
             app:layout_constraintTop_toBottomOf="@+id/job_date"
             tools:text="@string/post_description_placeholder" />
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="wrap_content"
-            android:layout_height="0.1dp"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="10dp"
-            android:alpha="0.5"
-            android:background="@color/lbl_color"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/job_description"
-            app:layout_constraintVertical_bias="1.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

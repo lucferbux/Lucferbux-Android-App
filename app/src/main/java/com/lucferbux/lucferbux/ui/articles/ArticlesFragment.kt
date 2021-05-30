@@ -45,7 +45,7 @@ class ArticlesFragment : Fragment() {
 
         // UI
         viewModel.postData.observe(viewLifecycleOwner, { result ->
-            adapter.submitList(result)
+            adapter.addHeaderAndSubmitList(result)
         })
 
         viewModel.openLink.observe(viewLifecycleOwner, { url ->

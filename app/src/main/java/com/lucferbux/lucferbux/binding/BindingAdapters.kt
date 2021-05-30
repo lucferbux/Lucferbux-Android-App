@@ -105,6 +105,21 @@ object BindingAdapters {
         }
     }
 
+    @JvmStatic
+    @BindingAdapter("imageUrlRoundBorders")
+    fun imageUrlRoundBorders(imageView: ImageView, url: String?) {
+
+        if (!url.isNullOrEmpty()) {
+            var requestOptions =  RequestOptions()
+
+            Glide.with(imageView.context)
+                .load(url)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .transform(RoundedCorners(20))
+                .into(imageView)
+        }
+    }
+
 
     @JvmStatic
     @BindingAdapter("addSpanGrid")

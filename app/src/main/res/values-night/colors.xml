@@ -3,16 +3,17 @@
     <color name="primary">#946621</color>
     <color name="primary_variant">#C98C31</color>
     <color name="primary_darker">#946621</color>
+    <color name="primary_navigation">#362306</color>
     <color name="secondary">#007789</color>
     <color name="secondary_variant">#00555e</color>
     <color name="warning">#FE4A49</color>
     <color name="accent">#8449FC</color>
-    <color name="background">#2B2830</color>
+    <color name="background">#1E1407</color>
     <color name="background_card">#35373A</color>
 
     <color name="lbl_color">#FFFFFF</color>
-
     <color name="icn_color">#FFFFFF</color>
+    <color name="icn_selected_color">#946621</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>

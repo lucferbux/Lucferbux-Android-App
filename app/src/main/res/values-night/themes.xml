@@ -10,13 +10,15 @@
         <item name="colorSecondaryVariant">@color/secondary_variant</item>
         <item name="colorOnSecondary">@color/white</item>
 
-        <item name="actionBarTheme">@style/ThemeOverlay.ActionBar</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.NoActionBar</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/primary_variant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/background</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 
-    <style name="ThemeOverlay.Dark.ActionBar" parent="">
+    <style name="ThemeOverlay.Dark.NoActionBar" parent="">
         <item name="colorPrimary">@color/primary_darker</item>
     </style>
 </resources>

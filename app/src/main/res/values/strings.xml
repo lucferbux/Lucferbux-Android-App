@@ -3,7 +3,13 @@
     <string name="nav_home">Home</string>
     <string name="nav_aboutme">Aboutme</string>
     <string name="nav_projects">Projects</string>
-    <string name="nav_articles">Articles</string>
+    <string name="nav_articles">Posts</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_aboutme">About Me</string>
+    <string name="title_projects">Projects</string>
+    <string name="title_articles">Posts</string>
+
     <string name="btn_intro_link">Link</string>
 
     <string name="img_news">Caption Image of News</string>

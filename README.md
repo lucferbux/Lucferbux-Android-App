@@ -1,6 +1,10 @@
 # Lucferbux Android
 > Portfolio in Android with MVVM
 
+## Play Store
+
+You can find the app in the [Play Store](https://play.google.com/store/apps/details?id=com.lucferbux.lucferbux)
+
 ## Introduction
 
 The application uses Clean Architecture based on MVVM and Repository patterns. Implemented
@@ -38,9 +42,7 @@ There are two Gradle tasks for testing the project:
 Screenshots
 -----------
 
-![Home](https://user-images.githubusercontent.com/16117276/107965953-7cded080-6fab-11eb-92b8-511e4d00916a.png)
-![Aboutme](https://user-images.githubusercontent.com/16117276/107965959-7e0ffd80-6fab-11eb-8be4-939192a2b4ee.png)
-![Home Dark](https://user-images.githubusercontent.com/16117276/107965962-7ea89400-6fab-11eb-99d7-5d09513ceb8d.png)
+<img width="1560" alt="Screenshot 2021-05-31 at 10 58 04" src="https://user-images.githubusercontent.com/16117276/120168397-16e72380-c1ff-11eb-9209-28324406620c.png">
 
 
 

@@ -11,6 +11,8 @@
     <color name="background">#1E1407</color>
     <color name="background_card">#35373A</color>
 
+    <color name="invert_contrast">#FFFFFF</color>
+
     <color name="lbl_color">#FFFFFF</color>
     <color name="icn_color">#FFFFFF</color>
     <color name="icn_selected_color">#946621</color>

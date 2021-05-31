@@ -115,7 +115,7 @@ object BindingAdapters {
             Glide.with(imageView.context)
                 .load(url)
                 .transition(DrawableTransitionOptions.withCrossFade())
-                .transform(RoundedCorners(20))
+                .transform(RoundedCorners(28))
                 .into(imageView)
         }
     }

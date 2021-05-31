@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <data>
+
+        <variable
+            name="projectData"
+            type="com.lucferbux.lucferbux.data.Project"
+            />
+
+        <variable
+            name="clickListener"
+            type="com.lucferbux.lucferbux.ui.projects.ProjectListener"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="@{() -> clickListener.onclick(projectData)}">
+
+
+        <TextView
+            android:id="@+id/project_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@{projectData.title_en}"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/lbl_color"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/project_title_placeholder" />
+
+        <TextView
+            android:id="@+id/project_tags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@{projectData.tags}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/lbl_color"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/project_title"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/project_title"
+            app:layout_constraintTop_toBottomOf="@+id/project_title"
+            tools:text="@string/project_tags_placeholder" />
+
+        <TextView
+            android:id="@+id/project_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="17dp"
+            android:alpha="0.7"
+            android:maxLines="3"
+            android:text="@{projectData.description_en}"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/lbl_color"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/project_title"
+            app:layout_constraintStart_toStartOf="@+id/project_title"
+            app:layout_constraintTop_toBottomOf="@+id/project_tags"
+            tools:text="@string/project_description_placeholder" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/version_code"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="20dp"
+            android:text="@{projectData.version}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/lbl_color"
+            android:textSize="10sp"
+            app:chipBackgroundColor="@color/primary"
+            app:chipCornerRadius="26dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/project_version_placeholder" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

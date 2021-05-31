@@ -7,11 +7,11 @@
         android:orderInCategory="1"
         android:icon="@drawable/ic_home"/>
 
-<!--    <item android:id="@+id/projects"
+    <item android:id="@+id/projects"
         android:title="@string/nav_projects"
         app:showAsAction="always"
         android:orderInCategory="2"
-        android:icon="@drawable/ic_projects"/>-->
+        android:icon="@drawable/ic_baseline_code"/>
 
     <item android:id="@+id/articles"
         android:title="@string/nav_articles"

@@ -31,4 +31,9 @@
     <string name="post_description_placeholder">This guide shows the steps to clone all the SD content of a Raspberry Pi to back up or dump the content to another device. Also I show a trick to monitor the cloning process that can be very helpful.</string>
 
 
+    <string name="project_title_placeholder">Lucferbux Web React</string>
+    <string name="project_tags_placeholder">React, Gatsby, Typescript</string>
+    <string name="project_description_placeholder">Personal portfolio developerd with React, Styled Components, Gatsby and modern design patterns</string>
+    <string name="project_version_placeholder">0.0.1</string>
+
 </resources>

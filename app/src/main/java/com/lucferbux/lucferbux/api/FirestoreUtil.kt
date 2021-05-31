@@ -10,6 +10,7 @@ import com.lucferbux.lucferbux.api.DataSource
 import com.lucferbux.lucferbux.api.FirebaseResult
 import com.lucferbux.lucferbux.data.Intro
 import com.lucferbux.lucferbux.data.Post
+import com.lucferbux.lucferbux.data.Project
 import com.lucferbux.lucferbux.data.Work
 import kotlin.coroutines.Continuation
 import kotlin.coroutines.resume
@@ -117,6 +118,27 @@ class FirestoreUtil: DataSource {
                 })
 
         return postData
+    }
+
+    fun getProjectListener(): LiveData<List<Project>> {
+        val projectData: MutableLiveData<List<Project>> = MutableLiveData()
+        db.collection("project")
+            .orderBy("date", Query.Direction.DESCENDING).addSnapshotListener(EventListener<QuerySnapshot> { value, e ->
+                if (e != null) {
+                    projectData.value = null
+                    return@EventListener
+                }
+
+                var savedProjectList : MutableList<Project> = mutableListOf()
+                for (doc in value!!) {
+                    var projectItem = doc.toObject(Project::class.java)
+                    projectItem.id = doc.id
+                    savedProjectList.add(projectItem)
+                }
+                projectData.value = savedProjectList
+            })
+
+        return projectData
     }
 
 

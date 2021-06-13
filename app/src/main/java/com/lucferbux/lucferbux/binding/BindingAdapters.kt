@@ -5,6 +5,7 @@ import android.net.Uri
 import android.view.View
 import android.widget.*
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -89,7 +90,6 @@ object BindingAdapters {
         }
     }
 
-
     @JvmStatic
     @BindingAdapter("imageUrlRounded")
     fun imageUrlRounded(imageView: ImageView, url: String?) {
@@ -124,8 +124,7 @@ object BindingAdapters {
     @JvmStatic
     @BindingAdapter("addSpanGrid")
     fun addSpanGrid(recyclerView: RecyclerView, spancount: Int) {
-
-        recyclerView.addItemDecoration(GridSpacingItemDecoration(spancount, 40, true))
+        recyclerView.addItemDecoration(GridSpacingItemDecoration(spancount, 40, true, true))
     }
 
 

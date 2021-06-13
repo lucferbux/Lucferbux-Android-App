@@ -69,6 +69,7 @@ class HomeAdapter(val clickListener: IntroListener): ListAdapter<DataItem, Recyc
             binding.introData = item
             binding.clickListener = clickListener
             binding.executePendingBindings()
+
         }
 
         companion object {
@@ -77,6 +78,8 @@ class HomeAdapter(val clickListener: IntroListener): ListAdapter<DataItem, Recyc
                 return ViewHolder(binding)
             }
         }
+
+
     }
 
 
@@ -85,6 +88,7 @@ class HomeAdapter(val clickListener: IntroListener): ListAdapter<DataItem, Recyc
             fun from(parent: ViewGroup): HeaderViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val view = layoutInflater.inflate(R.layout.home_header, parent, false)
+
                 return HeaderViewHolder(view)
             }
         }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">@android:color/system_accent1_300</color>
+    <color name="primary_variant">@android:color/system_accent1_400</color>
+    <color name="primary_darker">@android:color/system_accent1_500</color>
+    <color name="primary_navigation">@android:color/system_accent1_50</color>
+    <color name="secondary">@android:color/system_accent3_300</color>
+    <color name="secondary_variant">@android:color/system_accent3_300</color>
+    <color name="background">@android:color/system_accent1_10</color>
+
+    <color name="background_logo">#000000</color>
+    <color name="front_logo">@android:color/system_accent1_50</color>
+
+    <color name="background_icon">@android:color/system_accent1_100</color>
+    <color name="front_icon">@android:color/system_neutral1_700</color>
+</resources>

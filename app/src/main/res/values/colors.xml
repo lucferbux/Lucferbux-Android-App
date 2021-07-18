@@ -9,9 +9,6 @@
     <color name="warning">#FE4A49</color>
     <color name="accent">#EA887D</color>
     <color name="background">#FFF8ED</color>
-    <color name="background_card">#F8FAFF</color>
-
-    <color name="invert_contrast">#000000</color>
 
     <color name="lbl_color">#000000</color>
     <color name="icn_color">#000000</color>
@@ -19,4 +16,10 @@
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="background_logo">#000000</color>
+    <color name="front_logo">#e3a549</color>
+
+    <color name="background_icon">#000000</color>
+    <color name="front_icon">#FFFFFF</color>
 </resources>

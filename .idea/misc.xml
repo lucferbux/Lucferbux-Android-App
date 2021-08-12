@@ -26,8 +26,11 @@
         <entry key="app/src/main/res/drawable/ic_linkedin.xml" value="0.2482638888888889" />
         <entry key="app/src/main/res/drawable/ic_lucferbux_logo.xml" value="0.2847222222222222" />
         <entry key="app/src/main/res/drawable/nav_item_selected.xml" value="0.2482638888888889" />
+        <entry key="app/src/main/res/layout-large/about_me_fragment.xml" value="0.2625" />
         <entry key="app/src/main/res/layout-large/home_card.xml" value="0.38525390625" />
         <entry key="app/src/main/res/layout-v31/home_card.xml" value="0.27395833333333336" />
+        <entry key="app/src/main/res/layout/about_me_fragment.xml" value="0.26458333333333334" />
+        <entry key="app/src/main/res/layout/articles_fragment.xml" value="0.33421052631578946" />
         <entry key="app/src/main/res/layout/home_card.xml" value="0.16284722222222223" />
         <entry key="app/src/main/res/layout/home_fragment.xml" value="0.27395833333333336" />
         <entry key="app/src/main/res/layout/post_cell.xml" value="0.2375" />

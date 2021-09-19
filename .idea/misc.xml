@@ -30,11 +30,12 @@
         <entry key="app/src/main/res/layout-large/home_card.xml" value="0.38525390625" />
         <entry key="app/src/main/res/layout-v31/home_card.xml" value="0.27395833333333336" />
         <entry key="app/src/main/res/layout/about_me_fragment.xml" value="0.26458333333333334" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.48504273504273504" />
         <entry key="app/src/main/res/layout/articles_fragment.xml" value="0.33421052631578946" />
         <entry key="app/src/main/res/layout/home_card.xml" value="0.16284722222222223" />
         <entry key="app/src/main/res/layout/home_fragment.xml" value="0.27395833333333336" />
         <entry key="app/src/main/res/layout/post_cell.xml" value="0.2375" />
-        <entry key="app/src/main/res/layout/project_cell.xml" value="1.1425281384302144" />
+        <entry key="app/src/main/res/layout/project_cell.xml" value="0.23601768981812174" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2847222222222222" />
       </map>
     </option>

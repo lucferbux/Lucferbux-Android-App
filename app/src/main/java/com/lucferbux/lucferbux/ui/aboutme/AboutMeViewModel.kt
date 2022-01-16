@@ -45,7 +45,7 @@ class AboutMeViewModel(val firebase: FirestoreUtil, application: Application) : 
         }
 
     fun navigateLinkedin() {
-        _openLink.value = "https://www.linkedin.com/mynetwork/"
+        _openLink.value = "https://www.linkedin.com/in/lucferbux/"
     }
 
     fun navigateTwitter() {

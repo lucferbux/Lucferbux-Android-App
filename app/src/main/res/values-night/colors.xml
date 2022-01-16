@@ -9,7 +9,8 @@
     <color name="secondary_variant">#00555e</color>
     <color name="warning">#FE4A49</color>
     <color name="accent">#8449FC</color>
-    <color name="background">#35322D</color>
+    <color name="background">#2B2830</color>
+    <color name="background_card">#35373A</color>
 
     <color name="lbl_color">#FFFFFF</color>
     <color name="icn_color">#FFFFFF</color>

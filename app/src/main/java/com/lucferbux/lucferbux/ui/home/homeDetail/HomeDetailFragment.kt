@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.databinding.DataBindingUtil
@@ -87,10 +88,14 @@ class HomeDetailFragment : Fragment() {
         viewModel.openLink.observe(viewLifecycleOwner, Observer { data ->
 
             data?.let {
-                val defaultBrowser = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
-                defaultBrowser.data = Uri.parse(it)
-                startActivity(defaultBrowser)
-                viewModel.onLinkPrepared()
+                val webpage: Uri = Uri.parse(it)
+                val intent = Intent(Intent.ACTION_VIEW, webpage)
+                try {
+                    startActivity(intent)
+                    viewModel.onLinkPrepared()
+                } catch (e: Exception) {
+                    Toast.makeText(context, "Error, no browser provided", Toast.LENGTH_SHORT).show()
+                }
             }
 
         })

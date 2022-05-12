@@ -7,7 +7,8 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 32
+    compileSdkPreview "Tiramisu"
     buildToolsVersion "30.0.3"
     dataBinding {
         enabled = true
@@ -15,7 +16,8 @@ android {
     defaultConfig {
         applicationId "com.lucferbux.lucferbux"
         minSdkVersion 24
-        targetSdkVersion 31
+        targetSdkVersion 32
+        targetSdkPreview "Tiramisu"
         versionCode 15
         versionName "2.2"
         multiDexEnabled true

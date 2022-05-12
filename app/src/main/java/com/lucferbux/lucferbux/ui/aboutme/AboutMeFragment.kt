@@ -52,17 +52,21 @@ class AboutMeFragment : Fragment() {
 
         // UI
 
-        viewModel.workData.observe(viewLifecycleOwner, { result ->
+        viewModel.workData.observe(viewLifecycleOwner) { result ->
             adapter.submitList(result)
-        })
+        }
 
         viewModel.openLink.observe(viewLifecycleOwner, Observer { data ->
 
             data?.let {
-                val defaultBrowser = Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
-                defaultBrowser.data = Uri.parse(it)
-                startActivity(defaultBrowser)
-                viewModel.onLinkPrepared()
+                val webpage: Uri = Uri.parse(it)
+                val intent = Intent(Intent.ACTION_VIEW, webpage)
+                try {
+                    startActivity(intent)
+                    viewModel.onLinkPrepared()
+                } catch (e: Exception) {
+                    Toast.makeText(context, "Error, no browser provided", Toast.LENGTH_SHORT).show()
+                }
             }
 
         })

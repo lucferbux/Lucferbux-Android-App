@@ -1,6 +1,5 @@
 package com.lucferbux.lucferbux.ui
 
-import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -33,7 +32,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpNavigation() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment?
-
         NavigationUI.setupWithNavController(
             bottom_nav,
             navHostFragment!!.navController

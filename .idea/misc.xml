@@ -28,7 +28,9 @@
         <entry key="app/src/main/res/drawable/ic_lucferbux_logo.xml" value="0.2847222222222222" />
         <entry key="app/src/main/res/drawable/nav_item_selected.xml" value="0.2482638888888889" />
         <entry key="app/src/main/res/layout-large/about_me_fragment.xml" value="0.2625" />
+        <entry key="app/src/main/res/layout-large/activity_main.xml" value="0.22909450766947057" />
         <entry key="app/src/main/res/layout-large/home_card.xml" value="0.38525390625" />
+        <entry key="app/src/main/res/layout-large/home_detail_fragment.xml" value="0.19518737792968754" />
         <entry key="app/src/main/res/layout-v30/about_me_fragment.xml" value="0.2318840579710145" />
         <entry key="app/src/main/res/layout-v31/about_me_fragment.xml" value="0.25384615384615383" />
         <entry key="app/src/main/res/layout-v31/activity_main.xml" value="0.25384615384615383" />

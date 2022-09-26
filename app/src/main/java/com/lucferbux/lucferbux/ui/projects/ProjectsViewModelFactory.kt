@@ -16,7 +16,7 @@ class ProjectViewModelFactory(private val firestore: FirestoreUtil, private val 
      * @param <T>        The type parameter for the ViewModel.
      * @return a newly created ViewModel
     </T> */
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if(modelClass.isAssignableFrom(ProjectsViewModel::class.java)) {
             return ProjectsViewModel(firestore, application) as T
         }

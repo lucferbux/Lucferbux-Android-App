@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.lucferbux.lucferbux">
+    xmlns:dist="http://schemas.android.com/apk/distribution">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lucferbux">
         <activity android:name=".ui.MainActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:resizeableActivity="true"
             android:exported="true">
             <intent-filter>

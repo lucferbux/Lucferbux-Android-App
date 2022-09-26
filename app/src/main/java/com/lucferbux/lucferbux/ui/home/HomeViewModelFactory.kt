@@ -16,7 +16,7 @@ class HomeViewModelFactory(private val firestore: FirestoreUtil, private val app
      * @param <T>        The type parameter for the ViewModel.
      * @return a newly created ViewModel
     </T> */
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if(modelClass.isAssignableFrom(HomeViewModel::class.java)) {
             return HomeViewModel(firestore, application) as T
         }
